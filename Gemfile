@@ -6,7 +6,14 @@ gem 'rails', '3.2.12'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'activeadmin'
-gem 'sqlite3'
+group :production do
+	gem 'pg'
+end
+
+group :development, :test do
+	gem 'sqlite3'
+end
+
 gem 'devise'
 gem 'carrierwave'
 gem "fog", "~> 1.3.1"
