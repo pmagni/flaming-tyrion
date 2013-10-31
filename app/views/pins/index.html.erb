@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Listing pins</h1>
+
+  <% @pins.each do |pin| %>
+    <%= pin.user.email %></td>
+    <%= pin.comment %></td>
+    <%= image_tag(pin.photo, :class => 'img_rounded', :style=>'width:300px') %></td>
+    <%= link_to 'Show', pin %></td>
+    <%= link_to 'Edit', edit_pin_path(pin) %></td>
+    <%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<% end %>
+
+<br />
+</div>
+<%= link_to 'New Pin', new_pin_path %>

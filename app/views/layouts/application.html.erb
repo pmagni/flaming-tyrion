@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Taller de Marketing</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+
+<ul class="nav nav-pills">
+  <li class="active"><%= link_to("Home", home_path) %> </li>
+  <li class="inactive"><%= link_to("Blog", blog_path) %> </li>
+  <li class="inactive"><%= link_to("Pins", pins_path) %> </li>
+  <%- if current_user.nil? %>
+  <li><%= link_to 'Crear Cuenta', new_user_registration_path %></li>
+  
+  <li><%= link_to 'Iniciar Sesión', new_user_session_path %></li>
+  <%- else %>
+  <li><%= link_to 'Editar Perfil', edit_user_registration_path %></li>
+  <li><%= link_to 'Cerrar Sesión', destroy_user_session_path, :method=>:delete %></li>
+  <%- end %>
+</ul>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<%= yield %>
+
+</body>
+</html>
